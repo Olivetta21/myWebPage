@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="https://api.olivetta.com.br/welcome_to_olivetta/imagens/faviconolivetta.png" type="image/x-icon">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Jersey+10&family=Jura:wght@300..700&family=Playwrite+IN:wght@100&display=swap" rel="stylesheet">
+	
+    <title>Bem-vindo ao Olivetta</title>
+	<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+			user-select: none;
+			scrollbar-width: none;
+        }
+		
+        body {
+			height: 100vh;
+			
+            font-family: 'Roboto', sans-serif;
+            background-color: white;
+			color: black;
+		}
+		
+		
+		.informationcont {
+			height: 100%;
+			
+			display: flex;
+			flex-direction: column;
+			
+			gap: 10px;
+		}
+		.informationcont>div {
+		
+		}
+		
+		.header {
+			height: 5%;
+			padding: 5px;
+			
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			align-items: center;
+			gap: 2em;
+		}
+		.header>div>p {
+			padding: 5px;
+			border: 1px solid gray;
+			border-radius: 3px;
+			transition: 0.1s;
+			
+			font-family: "Concert One", serif;
+		}
+		.header>div>p:hover {
+			color: white;
+			background-color: black;
+		}		
+		.header>div>div {			
+			font-family: "Jersey 10", serif;
+		}
+		
+		
+		.body1 {
+			flex: auto;
+			
+			display: flex;
+			flex-direction: row;
+		}
+		.body1>div {
+			width: 50%;
+		}
+		
+		
+		
+		
+		.welcome {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			
+			justify-content: space-evenly;	
+		}
+		.welcome>div:nth-child(1) {
+			width: 100%;
+			max-width: 5em;
+			font-size: 7em;
+			
+			font-family: "Playwrite IN", serif;
+		}
+		.welcome>div>p {
+			font-size: 6em;
+			
+			transform-origin: center;
+			transform: rotate(90deg);
+		}
+		.welcome>div>div:nth-child(2){
+			text-align: right;
+		}
+		
+		
+		.logo {
+			padding: 5%;
+		}
+		
+		.logo>img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			transform-origin: center;
+			transform: rotate(29deg);
+			transition: 1s;
+		}
+		.logo>img:hover {
+			filter: drop-shadow(-5px 34px 0px gray);
+		}
+		
+		.info2 {
+			height: 100%;
+		}
+		.info2>div{
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.info2>div>img {
+			width: 100%;
+			height: 100%;
+			transform-origin: center;
+			position: absolute;
+			z-index: -1;
+			
+			object-fit: cover;
+		}
+		
+		.message {
+			overflow: auto;
+			scrollbar-width: none;
+		
+			height: 70%;
+			width: 60%;
+			min-width: 400px;
+			background-color: rgb(255 255 255 / 50%);
+			border-radius: 1em;
+			padding: 35px;
+			border: 1px solid gray;
+			backdrop-filter: blur(7px);
+			
+			font-family: "Jura", serif;
+			font-size: 1.5em;
+		}
+		
+		
+		
+		
+		@media (max-width: 800px) {
+			.body1 {
+				flex: auto;
+				
+				display: flex;
+				flex-direction: column-reverse;
+				align-items: center;
+			}
+			.body1>div {
+				height: 70%;
+			}
+			.body1>div:nth-child(2) {
+				width: fit-content;
+			}
+			
+			
+			.welcome>div:nth-child(1) {
+				width: 100%;
+				max-width: 5em;
+				font-size: 5em;
+			}
+			.welcome>div>p {
+				font-size: 3em;
+			}
+			
+		}
+		
+		
+        .scroll-effect {
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+		
+		
+        .shadow-effect {
+            animation: sjiggle 5s infinite;
+        }
+
+        @keyframes sjiggle {
+            0% { filter: drop-shadow(38px -16px 0px rgb(200,200,200)); }
+            50% { filter: drop-shadow(-5px -16px 0px rgb(200,200,200)); }
+            100% { filter: drop-shadow(38px -16px 0px rgb(200,200,200)); }
+        }
+		
+		#cookiecont {
+			position: relative;
+		}
+		#cookieImg {
+            position: absolute;
+			z-index: 1;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+			transition: 0.2s;
+		}
+		
+		
+		
+		
+		
+
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+		
+		.dropbtn {
+			border: none;
+			cursor: pointer;
+		}
+
+		.dropdown-content {
+			opacity: 0;
+			position: absolute;
+			background-color: #f9f9f9;
+			min-width: 160px;
+			max-width: 90vw;
+			width: max-content;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+			transition: 0.2s;
+			display: none;
+		}
+		
+		.dropdown-content button {
+			
+			width: 100%;
+			background-color: transparent;
+    		border: none;
+
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			
+			gap: 5px;
+		}
+		.dropdown-content button>img {
+			width: 32px;
+			height: 32px;
+		}
+
+		.dropdown-content button:hover {
+			background-color: #f1f1f1
+		}
+
+		.dropdown:hover .dropbtn {
+			background-color: black;
+			color: white;
+		}	
+		
+	</style>
+</head>
+<body>
+	<div class="informationcont" >
+		<div class="header">
+			<div class="dropdown" onclick="tgDropDown(1)">
+				<p class="dropbtn">Projetos</p>
+				<div id="dropdown1" class="dropdown-content">
+					<button id="p1"><img src="https://api.olivetta.com.br/certificados/imagens/cartaoico.png"> <p> Gerenciamento de Certificados </p></button>
+					<button id="p2"><img src="https://api.olivetta.com.br/uniformes/imagens/unifuniico.png"> <p> Uniforme Unigran </p></button>
+				</div>
+			</div>
+			<div class="dropdown" onclick="tgDropDown(2)">
+				<p class="dropbtn">Contato</p>
+				<div id="dropdown2" class="dropdown-content">
+					<button id="inst"><img src="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png"> <p> ivan.olivetta </p></button>
+					<button id="wapp"> <img src="https://static.whatsapp.net/rsrc.php/v4/yP/r/rYZqPCBaG70.png"> <p> 67 99602-1942 </p> </button>
+					<button id="mail"> <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico"> <p> olivetta2184@gmail.com </p></button>
+				</div>
+			</div>
+			<div id="abt" class="dropdown" onclick="tgDropDown(3)">
+				<p class="dropbtn">About</p>
+				<div id="dropdown3" class="dropdown-content">
+					<button> &copy; Logo "Olivetta" desenvolvido pelo meu irmão Kelvin </button>
+					<button> &copy; Site desenvolvido pelo próprio Ivan </button>
+				</div>
+			</div>
+		</div>
+		<div class="body1" onclick="scrollToBottom()">
+			<div class="logo"  > 
+				<img class="shadow-effect" src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/ivanlogo.png" >
+			</div>
+			<div class="welcome" >
+				<div>  
+					<div> Bem </div>
+					<div> Vindo! </div>	
+				</div>				
+				<div class="scroll-effect">
+					<p>&#10137;</P>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="info2" id="cookiecont" >
+		<img draggable="false" id="cookieImg" src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/cookie.png" >
+		<div> 
+			<img src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/glaciar.jpeg" >
+			<div class="message" >
+				Sobre Mim
+				<br>
+				&emsp;Olá 😁! Meu nome é Ivan Luiz Pivetta de Oliveira, conhecido por Olivetta no mundo dos jogos, que agora também é o nome-base da minha webpage. Ele é uma junção criativa das primeiras letras de Oliveira com as últimas de Pivetta.
+				<br>
+				&emsp;Atualmente, sou o TI em um escritório de contabilidade e estou cursando Engenharia de Software. Minha paixão pela tecnologia e meu desejo de aprender sempre me impulsionaram a crescer, tanto pessoal quanto profissionalmente.
+				<br>
+				&emsp;Nos meus momentos livres, gosto de jogar videogames com os amigos, desde que minhas obrigações estejam cumpridas. Acredito que a vida ganha sentido quando criamos nosso próprio propósito, e isso me motiva a buscar o meu a cada dia.
+				<br>
+				&emsp;Sou uma pessoa gentil, paciente e com uma grande capacidade de aprendizado. Um dos meus pontos fortes é ensinar; adoro compartilhar conhecimentos e vejo isso como uma forma de fortalecer minhas próprias habilidades.
+				<br>
+				&emsp;Meu grande sonho é liderar minha própria equipe de desenvolvedores, especialmente no universo dos games. Essa meta reflete minha visão de que o conhecimento é o bem mais valioso que alguém pode ter – e algo que ninguém pode tirar de mim.
+				<br>
+				&emsp;Quero ser lembrado como alguém inteligente e dedicado, que nunca perdeu o foco em seus objetivos e usou sua determinação para criar algo significativo.
+				<br>
+				<br>
+				<br>
+				Esse site ainda está em desenvolvimento...
+				<br>
+				Enquanto isso, clique no cookie 😉<br>
+				<p id="cookieClicks" > </p>
+			</div>
+		</div>
+	</div>
+
+    <script>
+		function redir(what, url) {
+			const formData = new FormData();
+			formData.append("what", JSON.stringify(what));
+		
+			fetch("https://api.olivetta.com.br/welcome_to_olivetta/sender/REDlRECT.php", {
+				method: 'POST',
+				body: formData
+			}).then(() => {
+				window.location.href = url;
+			});
+		}
+		
+		document.getElementById("p1").addEventListener("click", () => {redir("p1", "https://certificados.olivetta.com.br");});
+		document.getElementById("p2").addEventListener("click", () => {redir("p2", "https://uniformes.olivetta.com.br");});
+		document.getElementById("inst").addEventListener("click", () => {redir("inst", "https://www.instagram.com/ivan.olivetta/");});
+		document.getElementById("wapp").addEventListener("click", () => {redir("wapp", "https://api.whatsapp.com/send?phone=5567996021942");});
+		document.getElementById("mail").addEventListener("click", () => {redir("mail", "mailto:olivetta2184@gmail.com");});
+		document.getElementById("abt").addEventListener("click", () => {redir("abt", "#");});
+		
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+		
+		
+		
+		
+		let lastOpened = -1;
+		function dropDownShow(dd){
+			dd.style.display = `block`;
+			
+			document.fonts.ready.then(() => {
+				const ddRect = dd.getBoundingClientRect();
+				const winRect = document.body.getBoundingClientRect();
+				if (winRect.right < ddRect.right) dd.style.transform = `translateX(${winRect.right - ddRect.right - 5}px)`;
+			});
+			
+			dd.style.opacity = `1`;
+			
+		}
+		function dropDownHide(dd){
+			dd.style.removeProperty(`opacity`);
+			setTimeout(() => {
+				dd.style.removeProperty(`transform`);
+				dd.style.removeProperty(`display`);
+			}, 100);
+		}
+		function tgDropDown(id) {
+			if (lastOpened != id) {
+				let ddl = document.getElementById(`dropdown${lastOpened}`);
+				if (ddl) dropDownHide(ddl);
+			}
+						
+			const dd = 	document.getElementById(`dropdown${id}`);
+			
+			if (dd.style.display != `block`){
+				dropDownShow(dd);
+				lastOpened = id;
+			}
+			else {
+				dropDownHide(dd);
+			}			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+        const cookiecont = document.getElementById("cookiecont");
+        const cookie = document.getElementById("cookieImg");
+		const cookieClicks = document.getElementById("cookieClicks");
+		
+		let cookieClicksCounts = 0;
+		let timeCookieClicked = 0;
+		let bestTimeCookieClicked = -1;
+		
+		function aleatorizarCookie(){
+            const containerWidth = cookiecont.clientWidth;
+            const containerHeight = cookiecont.clientHeight;
+
+            const imgWidth = cookie.offsetWidth;
+            const imgHeight = cookie.offsetHeight;
+
+            const newLeft = Math.random() * (containerWidth - imgWidth);
+            const newTop = Math.random() * (containerHeight - imgHeight);
+
+            cookie.style.left = `${newLeft}px`;
+            cookie.style.top = `${newTop}px`;
+            cookie.style.transform = `rotate(${Math.random() * 360}deg)`;
+		}
+		window.addEventListener('resize', aleatorizarCookie);
+        cookie.addEventListener("click", () => {
+			aleatorizarCookie();
+			
+			cookieClicksCounts++;
+			
+			let agora = Date.now();
+			let delay = agora - timeCookieClicked;
+			cookieClicks.textContent = `Cookies clicados: ${cookieClicksCounts} atraso: ${(timeCookieClicked) ? delay : 0}ms melhor: ${(bestTimeCookieClicked > -1) ? bestTimeCookieClicked : 0}ms`;
+			if (timeCookieClicked){
+				if (delay < bestTimeCookieClicked || bestTimeCookieClicked < 0) bestTimeCookieClicked = delay;
+			}
+			timeCookieClicked = agora;
+        });
+		
+		aleatorizarCookie();
+		
+    </script>
+</body>
+</html>
