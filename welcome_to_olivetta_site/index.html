@@ -12,45 +12,45 @@
 	
     <title>Bem-vindo ao Olivetta</title>
 	<style>
-		:root {
-			--bg-azul1: #03080a;
-			--bg-azul2: rgb(3, 12, 35);
-			--bg-cinza: #121212;
-			--bg-cinza2: #131313;
-			--ciano: #00ffe1;
-		}
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-			user-select: none;
-			scrollbar-width: none;
         }
-		
+
+        :root {
+            --percent-w: 50%;
+            --cor-principal: black;
+            --cor-principal-transp: rgba(0, 0, 0, 0.6);
+            --cor-principal-rev: white;
+            --cor-principal-rev-transp: rgba(255, 255, 255, 0.85);
+			--ciano: #00ffe1;
+        }
+
+        html {
+            scrollbar-width: none;
+            overflow-x: hidden;
+            background-color: white;
+        }
+
         body {
-			height: 100vh;
-			
-            font-family: 'Roboto', sans-serif;
-			background: linear-gradient(145deg, var(--bg-azul1), var(--bg-azul2));
-			color: white;
-		}
-		
-		
-		.informationcont {
-			height: 100%;
-			
-			display: flex;
-			flex-direction: column;
-			
-			gap: 10px;
-		}
-		.informationcont>div {
-		
-		}
-		
+            overflow-x: hidden;
+        }
+
+
+
+
+
+        
 		.header {
+            z-index: 1000;
+            background-color: transparent;
+            position: fixed;
+
 			height: 5%;
+            width: var(--percent-w);
+            transform: translateX(calc(50vw - 50%));
+
 			padding: 5px;
 			
 			display: flex;
@@ -75,178 +75,12 @@
 			font-family: "Jersey 10", serif;
 		}
 		
-		
-		.body1 {
-			flex: auto;
-			
-			display: flex;
-			flex-direction: row;
-		}
-		.body1>div {
-			width: 50%;
-		}
-		
-		
-		
-		
-		.welcome {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			
-			justify-content: space-evenly;	
-		}
-		.welcome>div:nth-child(1) {
-			width: 100%;
-			font-size: 6vw;
-			
-			font-family: "Press Start 2P", "Playwrite IN", serif;
-			color: var(--ciano);
-			text-shadow: 0 0 10px var(--ciano);
-		}
-		.welcome>div>p {
-			font-size: 6vw;
-			
-			transform-origin: center;
-			transform: rotate(90deg);
-		}
-		.welcome>div>div:nth-child(2){
-			text-align: right;
-		}
-		
-		
-		.logo {
-			padding: 5%;
-		}
-		
-		.logo>img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-			transform-origin: center;
-			transform: rotate(29deg);
-			transition: 1s;
-		}
-		.info2 {
-			height: 100%;
-		}
-		.info2>div{
-			height: 100%;
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
-		
-		.info2>div>img {
-			width: 100%;
-			height: 100%;
-			transform-origin: center;
-			position: absolute;
-			z-index: -1;
-			
-			object-fit: cover;
-		}
-		
-		.message {
-			overflow: auto;
-			scrollbar-width: none;
-		
-			height: 70%;
-			width: 60%;
-			min-width: 400px;
-			background-color: rgba(255, 255, 255, 0.075);
-			border-radius: 1em;
-			padding: 35px;
-			border: 1px solid var(--ciano);
-			backdrop-filter: blur(5px);
-			
-			font-family: "Jura", serif;
-			font-size: 1.5em;
-		}		
-		
-		@media (max-width: 800px) {
-			.body1 {
-				flex: auto;
-				
-				display: flex;
-				flex-direction: column-reverse;
-				align-items: center;
-			}
-			.body1>div {
-				height: 70%;
-			}
-			.body1>div:nth-child(2) {
-				width: fit-content;
-			}
-			
-			
-			.welcome>div:nth-child(1) {
-				font-size: 3em;
-			}
-			.welcome>div>p {
-				font-size: 3em;
-			}
-
-			.message {
-				min-width: 98%;
-			}
-			
-		}
-
-		
-		
-		
-        .scroll-effect {
-            animation: bounce 2s infinite;
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-		
-		
-        .shadow-effect {
-            animation: sjiggle 5s infinite;
-        }
-
-        @keyframes sjiggle {
-            50% { filter: drop-shadow(0px 0px 5px var(--ciano)); }
-        }
-		
-		#cookiecont {
-			position: relative;
-		}
-		#cookieImg {
-            position: absolute;
-			z-index: 1;
-            width: 100px;
-            height: 100px;
-            cursor: pointer;
-			transition: 0.2s;
-		}
-		#cookieImg:hover {
-			transform: scale(1.2) !important;
-		}
-		#cookieClicks {
-			color: var(--ciano);
-		}
-		
-		
-		
-		
-		
-
 		.dropdown {
 			position: relative;
 			display: inline-block;
 
-			color: var(--ciano);
-			border: 1px solid var(--ciano);
+			color: var(--cor-principal);
+            background-color: var(--cor-principal-rev-transp);
 		}
 		
 		.dropbtn {
@@ -257,9 +91,9 @@
 		.dropdown-content {
 			opacity: 0;
 			position: absolute;
-			background-color: var(--bg-cinza2);
-			color: var(--ciano);
-			border: 1px solid var(--ciano);
+			background-color: transparent;
+			color: var(--cor-principal);
+			border: 1px solid var(--cor-principal-rev);
 
 			min-width: 160px;
 			max-width: 90vw;
@@ -273,10 +107,10 @@
 		.dropdown-content button {
 			
 			width: 100%;
-			background-color: transparent;
+			background-color: var(--cor-principal-rev-transp);
     		border: none;
 
-			color: var(--ciano);
+			color: var(--cor-principal);
 			padding: 12px 16px;
 			text-decoration: none;
 			display: flex;
@@ -291,64 +125,228 @@
 		}
 
 		.dropdown-content button:hover {
-			background-color: var(--ciano);
-			color: black;
+			background-color: var(--cor-principal-transp);
+			color: var(--cor-principal-rev);
 		}
 
 		.dropdown:hover .dropbtn {
-			background-color: var(--ciano);
-			color: var(--bg-cinza);
+			background-color: var(--cor-principal);
+			color: var(--cor-principal-rev);
 		}	
 		
+
+
+
+
+
+
+        .quadro-central {
+            background-color: white;
+            width: var(--percent-w) ;
+            min-width: 300px;
+
+            transform: translateX(calc(50vw - 50%));
+            box-shadow: 5px 5px 50px 0px rgb(0 0 0 / 50%);
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #apresentacao {
+            flex: 1;
+
+            padding: 50px 0 50px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .apresentacao {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 100%;
+            padding: 30px;
+        }
+
+        .bg-fotoholder {
+            background-image: url("https://api.olivetta.com.br/welcome_to_olivetta/imagens/engrenagem3.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: relative;
+            transform: translateX(-50%) rotate(0deg) scale(2);
+
+            min-width: 60px;
+            width: 200px;
+            aspect-ratio: 1 / 1;
+
+            transition: 0.1s;
+        }
+        .bg-fotoholder.direita {
+            transform: translateX(50%) rotate(0deg) scale(2);
+        }
+
+        .fotoperfil {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+            
+            width: 70%;
+            aspect-ratio: 1 / 1;
+
+            border-radius: 50%;
+        }
+
+        .textoapresentacao {
+            font-family: 'Jersey 10', sans-serif;
+            font-size: 8rem;
+            color: black;
+            text-align: center;
+            margin-left: 20px;
+            align-content: center;
+        }
+    
+		#mensagem {
+			padding: 35px;
+
+			font-family: "Jura", serif;
+			font-size: 1.5rem;
+		}	
+
+        #logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+        #logo img {
+            width: 50%;
+            height: auto;
+        }
+
+		#cookiecont {
+            padding: 5px;
+
+            position: relative;
+            flex: 1;
+            width: 100%;
+
+            background-image: url("https://api.olivetta.com.br/welcome_to_olivetta/imagens/engrenagemtec.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+		}
+		#cookieImg {
+            position: absolute;
+			z-index: 1;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+			transition: 0.2s;
+		}
+		#cookieClicks {
+			color: var(--ciano);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+		}
+
+
+        @media (max-width: 1200px) {
+            .quadro-central {
+                max-width: 600px;
+                width: calc(100% - 20px);
+            }
+            .apresentacao {
+                flex-direction: column;
+                flex: 1;
+            }
+            .bg-fotoholder {
+                width: 100px;
+            }
+            .textoapresentacao {
+                font-size: 4rem;
+                margin-left: 0;
+            }
+            #mensagem {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-height: 670px) {
+            .apresentacao {
+                padding: 0;
+            }
+            .bg-fotoholder {
+                width: 70px;
+            }
+        }
+		
+
 	</style>
 </head>
 <body>
-	<div class="informationcont" >
-		<div class="header">
-			<div class="dropdown" onclick="tgDropDown(1)">
-				<p class="dropbtn">Projetos</p>
-				<div id="dropdown1" class="dropdown-content">
-					<button id="p1"><img src="https://api.olivetta.com.br/certificados/imagens/cartaoico.png"> <p> Gerenciamento de Certificados </p></button>
-					<button id="p2"><img src="https://api.olivetta.com.br/uniformes/imagens/unifuniico.png"> <p> Uniforme Unigran </p></button>
-				</div>
-			</div>
-			<div class="dropdown" onclick="tgDropDown(2)">
-				<p class="dropbtn">Contato</p>
-				<div id="dropdown2" class="dropdown-content">
-					<button id="inst"><img src="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png"> <p> ivan.olivetta </p></button>
-					<button id="wapp"> <img src="https://static.whatsapp.net/rsrc.php/v4/yP/r/rYZqPCBaG70.png"> <p> 67 99602-1942 </p> </button>
-					<button id="mail"> <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico"> <p> olivetta2184@gmail.com </p></button>
-				</div>
-			</div>
-			<div id="abt" class="dropdown" onclick="tgDropDown(3)">
-				<p class="dropbtn">About</p>
-				<div id="dropdown3" class="dropdown-content">
-					<button> &copy; Logo "Olivetta" desenvolvido pelo meu irmão Kelvin </button>
-					<button> &copy; Site desenvolvido pelo próprio Ivan </button>
-				</div>
-			</div>
-		</div>
-		<div class="body1" onclick="scrollToBottom()">
-			<div class="logo"  > 
-				<img class="shadow-effect" src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/ivanlogo.png" >
-			</div>
-			<div class="welcome" >
-				<div>  
-					<div> Bem </div>
-					<div> Vindo! </div>	
-				</div>				
-				<div class="scroll-effect">
-					<p>&#10137;</P>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="info2" id="cookiecont" >
-		<img draggable="false" id="cookieImg" src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/cookie.png" >
-		<div> 
-			<img src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/bg_keyboard.png" >
-			<div class="message" >
+    <div class="header">
+        <div class="dropdown" onclick="tgDropDown(1)">
+            <p class="dropbtn">Projetos</p>
+            <div id="dropdown1" class="dropdown-content">
+                <button id="p1"><img src="https://api.olivetta.com.br/certificados/imagens/cartaoico.png"> <p> Gerenciamento de Certificados </p></button>
+                <button id="p2"><img src="https://api.olivetta.com.br/uniformes/imagens/unifuniico.png"> <p> Uniforme Unigran </p></button>
+            </div>
+        </div>
+        <div class="dropdown" onclick="tgDropDown(2)">
+            <p class="dropbtn">Contato</p>
+            <div id="dropdown2" class="dropdown-content">
+                <button id="inst"><img src="https://static.cdninstagram.com/rsrc.php/v4/yI/r/VsNE-OHk_8a.png"> <p> ivan.olivetta </p></button>
+                <button id="wapp"> <img src="https://static.whatsapp.net/rsrc.php/v4/yP/r/rYZqPCBaG70.png"> <p> 67 99602-1942 </p> </button>
+                <button id="mail"> <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico"> <p> olivetta2184@gmail.com </p></button>
+            </div>
+        </div>
+        <div id="abt" class="dropdown" onclick="tgDropDown(3)">
+            <p class="dropbtn">About</p>
+            <div id="dropdown3" class="dropdown-content">
+                <button> &copy; Logo "Olivetta" desenvolvido pelo meu irmão Kelvin </button>
+                <button> &copy; Site desenvolvido pelo próprio Ivan </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="quadro-central">
+        <section >
+            <div id="apresentacao">
+                <div class="apresentacao">
+                    <div class="bg-fotoholder rotation-img-holder">
+                        <img class="fotoperfil rotation-img"  src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/noperfil.png" alt="cookie">
+                    </div>
+                    <div class="textoapresentacao">
+                        <p> #Ivan Luiz </p>
+                    </div>
+                </div>
+
+                <div class="apresentacao">
+                    <div class="textoapresentacao">
+                        <p> #Olivetta </p>
+                    </div>
+                    <div class="bg-fotoholder direita rotation-img-holder">
+                        <img class="fotoperfil rotation-img" src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/noperfil.png" alt="cookie">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="mensagem">
+                <hr>
 				Sobre Mim
 				<br>
 				&emsp;Olá 😁! Meu nome é Ivan Luiz Pivetta de Oliveira, conhecido por Olivetta no mundo dos jogos, que agora também é o nome-base da minha webpage. Ele é uma junção criativa das primeiras letras de Oliveira com as últimas de Pivetta.
@@ -367,13 +365,43 @@
 				<br>
 				Esse site ainda está em desenvolvimento...
 				<br>
-				Enquanto isso, clique no cookie 😉<br>
+            </div>
+            <div id="logo">
+                <img src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/ivanlogo.png" alt="logo">
+            </div>
+        </section>
+        <section>
+            <div id="cookiecont">
 				<p id="cookieClicks" > </p>
-			</div>
-		</div>
-	</div>
+                <img draggable="false" id="cookieImg" src="https://api.olivetta.com.br/welcome_to_olivetta/imagens/cookie.png" >
+            </div>
+        </section>
+    </div>
+
 
     <script>
+
+        window.addEventListener('scroll', () => {
+            let grau = window.scrollY * 0.2;
+            let tX = -50;
+
+            document.querySelectorAll('.rotation-img-holder').forEach(container => {
+            const content = container.querySelector('.rotation-img');
+
+            if (container.classList.contains('direita')) {
+                tX *= -1;
+                grau *= -1;
+            }
+
+            container.style.transform = `translateX(${tX}%) rotate(${grau}deg) scale(2)`;
+            content.style.transform = `translate(-50%, -50%) rotate(${-grau}deg)`;
+            });
+        });
+
+
+
+
+
 		function redir(what, url) {
 			const formData = new FormData();
 			formData.append("what", JSON.stringify(what));
